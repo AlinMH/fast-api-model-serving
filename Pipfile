@@ -8,6 +8,8 @@ transformers = "*"
 uvicorn = "*"
 pydantic = "*"
 fastapi = "*"
+torch = "*"
+torchvision = "*"
 
 [dev-packages]
 
