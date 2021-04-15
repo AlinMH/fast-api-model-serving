@@ -3,9 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.nlp import NLP
 
+
 class Message(BaseModel):
     input: str
     output: str = None
+
 
 app = FastAPI()
 nlp = NLP()
@@ -24,12 +26,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/generative/")
-async def  generate(message: Message):
-    message.output  = nlp.generate(prompt=message.input)
-    return {"output" : message.output}
+
+# @app.post("/generative/")
+# async def  generate(message: Message):
+#     message.output  = nlp.generate(prompt=message.input)
+#     return {"output" : message.output}
 
 @app.post("/sentiment/")
 async def sentiment_analysis(message: Message):
-    message.output  = str(nlp.sentiments(message.input))
-    return {"output" : message.output}
+    message.output = str(nlp.sentiments(message.input))
+    return {"output": message.output}
