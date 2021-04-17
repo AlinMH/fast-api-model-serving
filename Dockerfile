@@ -1,7 +1,7 @@
 FROM python:3.8
 
-COPY ./requirements/requirements.txt ./requirements/requirements.txt
-RUN pip3 install -r requirements/requirements.txt
+COPY ./requirements.txt ./requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY ./app /app
 RUN useradd -m myuser
