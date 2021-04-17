@@ -28,3 +28,15 @@ app.add_middleware(
 )
 
 app.include_router(router, prefix="/test")
+
+
+@app.post("/generative/")
+async def generate(message: Message):
+    message.output = nlp.generate(prompt=message.input)
+    return {"output": message.output}
+
+
+@app.post("/sentiment/")
+async def sentiment_analysis(message: Message):
+    message.output = str(nlp.sentiments(message.input))
+    return {"output": message.output}

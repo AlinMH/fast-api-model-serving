@@ -4,6 +4,7 @@ from transformers import (
     GPT2Tokenizer
 )
 
+
 class NLP:
     def __init__(self):
         self.gen_model = GPT2LMHeadModel.from_pretrained('gpt2')
