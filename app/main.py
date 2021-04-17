@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.nlp import NLP
+from app.routes import router
 
 
 class Message(BaseModel):
@@ -26,7 +27,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-async def root():
-    return "Hello"
+app.include_router(router, prefix="/test")
