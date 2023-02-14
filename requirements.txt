@@ -19,7 +19,7 @@ requests==2.25.0
 sacremoses==0.0.43
 sentencepiece==0.1.91
 six==1.15.0
-starlette==0.13.6
+starlette==0.25.0
 tokenizers==0.9.3
 torch==1.7.0
 torchvision==0.8.1
